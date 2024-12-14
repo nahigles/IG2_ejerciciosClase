@@ -28,6 +28,7 @@ void IG2App::shutdown() {
 	delete clock; // Ej1
 	delete snowman; // Ej2
 	delete earthAndSun; // Ej3
+	//delete blade;
 
 	// do not forget to call the base 
 	IG2ApplicationContext::shutdown();
@@ -61,8 +62,8 @@ void IG2App::setup(void) {
 	//addInputListener(snowman);
 
 	// Ejercicio 3
-	earthAndSun = new EarthAndSun(mSM);
-	addInputListener(earthAndSun);
+	//earthAndSun = new EarthAndSun(mSM);
+	//addInputListener(earthAndSun);
 
 	setupScene();
 }
@@ -107,26 +108,40 @@ void IG2App::setupScene(void) {
 	mLightNode->attachObject(luz);
 	mLightNode->setDirection(Ogre::Vector3(0, 0, -1));
 
+	//-----------------------------------------------------------------------
+	// Creating the floor
 
+	// Creamos plano
+	Ogre::MeshManager::getSingleton().createPlane("floor", ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+		Plane(Vector3::UNIT_Y, 0),
+		300, 200, 200, 200, true, 1, 5, 5,
+		Vector3::UNIT_Z);
+
+	// Entidad y Nodo
+	Entity* ent = mSM->createEntity("Floor", "floor");
+	//ent->setMaterialName(materialNames[2]);
+	SceneNode* floor = mSM->getRootSceneNode()->createChildSceneNode();
+	floor->attachObject(ent);
+	//floor->setPosition(150, 0, 100);
 
 	//------------------------------------------------------------------------
 	// Creating Sinbad
 
-	Ogre::Entity* ent = mSM->createEntity("Sinbad.mesh");
-	mSinbadNode = mSM->getRootSceneNode()->createChildSceneNode("nSinbad");
-	mSinbadNode->attachObject(ent);
+	//Ogre::Entity* ent = mSM->createEntity("Sinbad.mesh");
+	//mSinbadNode = mSM->getRootSceneNode()->createChildSceneNode("nSinbad");
+	//mSinbadNode->attachObject(ent);
 
-	// Show bounding box
-	mSinbadNode->showBoundingBox(true);
+	//// Show bounding box
+	//mSinbadNode->showBoundingBox(true);
 
-	// Set position of Sinbad
-	//mSinbadNode->setPosition(x, y, z);
+	//// Set position of Sinbad
+	////mSinbadNode->setPosition(x, y, z);
 
-	// Set scale of Sinbad
-	mSinbadNode->setScale(20, 20, 20);
+	//// Set scale of Sinbad
+	//mSinbadNode->setScale(20, 20, 20);
 
-	//mSinbadNode->yaw(Ogre::Degree(-45));
-	//mSinbadNode->setVisible(false);    
+	////mSinbadNode->yaw(Ogre::Degree(-45));
+	////mSinbadNode->setVisible(false);    
 
 
 	//-----------------------------------------------------------------------
@@ -139,7 +154,11 @@ void IG2App::setupScene(void) {
 	//snowman->setupSnowman();
 
 	// Ejercicio 3
-	earthAndSun->setupEarthAndSun();
+	//earthAndSun->setupEarthAndSun();
+
+	// ejercicio 4
+	SceneNode* bladeNode = mSM->getRootSceneNode()->createChildSceneNode("nBlade");
+	blade = new Blade({ 0,0,0 }, bladeNode, mSM);
 }
 
 
