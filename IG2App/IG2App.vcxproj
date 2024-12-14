@@ -122,6 +122,7 @@
     <ClInclude Include="Blade.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="EarthAndSun.h" />
+    <ClInclude Include="Helix.h" />
     <ClInclude Include="IG2ApplicationContext.h" />
     <ClInclude Include="IG2App.h" />
     <ClInclude Include="IG2Object.h" />
@@ -131,6 +132,7 @@
     <ClCompile Include="Blade.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="EarthAndSun.cpp" />
+    <ClCompile Include="Helix.cpp" />
     <ClCompile Include="IG2ApplicationContext.cpp" />
     <ClCompile Include="IG2Main.cpp" />
     <ClCompile Include="IG2App.cpp" />

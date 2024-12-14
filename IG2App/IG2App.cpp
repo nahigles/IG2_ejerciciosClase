@@ -157,8 +157,8 @@ void IG2App::setupScene(void) {
 	//earthAndSun->setupEarthAndSun();
 
 	// ejercicio 4
-	SceneNode* bladeNode = mSM->getRootSceneNode()->createChildSceneNode("nBlade");
-	blade = new Blade({ 0,0,0 }, bladeNode, mSM);
+	SceneNode* helixNode = mSM->getRootSceneNode()->createChildSceneNode("nHelix");
+	helix = new Helix({ 0,0,0 }, helixNode, mSM, 10);
 }
 
 

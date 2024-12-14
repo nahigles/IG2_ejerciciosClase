@@ -6,9 +6,9 @@ protected:
 	SceneNode* palaNode = nullptr;
 	SceneNode* ogreheadNode = nullptr;
 
-	static const int BLADE_ANCHO;
-	static const int BLADE_ALTO;
-	static const int BLADE_LARGO;
+	static const double BLADE_ANCHO;
+	static const double BLADE_ALTO;
+	static const double BLADE_LARGO;
 
 public:
 	Blade(Vector3 initPos, SceneNode* node, SceneManager* sceneMng);
