@@ -16,6 +16,7 @@
 
 #include "Clock.h"
 #include "Snowman.h"
+#include "EarthAndSun.h"
 
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener{
 
@@ -45,6 +46,7 @@ protected:
     // Punteros Ejercicios clase
     Clock* clock = nullptr;
     Snowman* snowman = nullptr;
+    EarthAndSun* earthAndSun = nullptr;
 
 };
 

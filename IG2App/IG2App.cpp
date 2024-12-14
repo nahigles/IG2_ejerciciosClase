@@ -27,6 +27,7 @@ void IG2App::shutdown() {
 
 	delete clock; // Ej1
 	delete snowman; // Ej2
+	delete earthAndSun; // Ej3
 
 	// do not forget to call the base 
 	IG2ApplicationContext::shutdown();
@@ -52,12 +53,16 @@ void IG2App::setup(void) {
 	addInputListener(this);
 
 	// Ejercicio 1
-	clock = new Clock(mSM);
-	addInputListener(clock);
+	//clock = new Clock(mSM);
+	//addInputListener(clock);
 
 	// Ejercicio 2
-	snowman = new Snowman(mSM);
-	addInputListener(snowman);
+	//snowman = new Snowman(mSM);
+	//addInputListener(snowman);
+
+	// Ejercicio 3
+	earthAndSun = new EarthAndSun(mSM);
+	addInputListener(earthAndSun);
 
 	setupScene();
 }
@@ -81,6 +86,7 @@ void IG2App::setupScene(void) {
 
 	// and tell it to render into the main window
 	Viewport* vp = getRenderWindow()->addViewport(cam);
+	vp->setBackgroundColour(Ogre::ColourValue(0.25, 0.25, 0.25));
 
 	// Camera manager
 	mCamMgr = new OgreBites::CameraMan(mCamNode);
@@ -123,11 +129,17 @@ void IG2App::setupScene(void) {
 	//mSinbadNode->setVisible(false);    
 
 
+	//-----------------------------------------------------------------------
+	// Creating Ejercicioss de Clase
+
 	// Ejercicio 1
 	//clock->setupClock();
 
 	// Ejercicio 2
-	snowman->setupSnowman();
+	//snowman->setupSnowman();
+
+	// Ejercicio 3
+	earthAndSun->setupEarthAndSun();
 }
 
 
