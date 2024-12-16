@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Airplane.h" />
     <ClInclude Include="Blade.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="EarthAndSun.h" />
@@ -126,9 +127,11 @@
     <ClInclude Include="IG2ApplicationContext.h" />
     <ClInclude Include="IG2App.h" />
     <ClInclude Include="IG2Object.h" />
+    <ClInclude Include="LucesSombras1.h" />
     <ClInclude Include="Snowman.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Airplane.cpp" />
     <ClCompile Include="Blade.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="EarthAndSun.cpp" />
@@ -137,6 +140,7 @@
     <ClCompile Include="IG2Main.cpp" />
     <ClCompile Include="IG2App.cpp" />
     <ClCompile Include="IG2Object.cpp" />
+    <ClCompile Include="LucesSombras1.cpp" />
     <ClCompile Include="Snowman.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

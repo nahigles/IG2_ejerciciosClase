@@ -24,5 +24,5 @@ void Blade::init()
 	Entity* entOgrehead = mSM->createEntity("ogrehead.mesh");
 	ogreheadNode->attachObject(entOgrehead);
 	ogreheadNode->setScale(0.5, 0.5, 0.1);
-	ogreheadNode->setPosition(initialPosition.x, initialPosition.y + BLADE_ALTO * 100 - 25, initialPosition.z + BLADE_LARGO*100);
+	ogreheadNode->setPosition(initialPosition.x, initialPosition.y + BLADE_ALTO * 100 - 25, initialPosition.z + BLADE_LARGO * 100);
 }

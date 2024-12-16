@@ -17,8 +17,8 @@
 #include "Clock.h"
 #include "Snowman.h"
 #include "EarthAndSun.h"
-#include "Blade.h"
-#include "Helix.h"
+#include "Airplane.h"
+#include "LucesSombras1.h"
 
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener{
 
@@ -49,7 +49,8 @@ protected:
     Clock* clock = nullptr;
     Snowman* snowman = nullptr;
     EarthAndSun* earthAndSun = nullptr;
-    Helix* helix = nullptr;
+    Airplane* airplane = nullptr;
+    LucesSombras1* lucesSombras1 = nullptr;
 
 };
 

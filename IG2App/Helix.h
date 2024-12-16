@@ -16,7 +16,8 @@ protected:
 
 public:
 	Helix(Vector3 initPos, SceneNode* node, SceneManager* sceneMng, int bladeNumber);
-	~Helix();
+	virtual ~Helix();
+	void roll(int grados);
 
 protected:
 	virtual void init();

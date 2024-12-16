@@ -17,6 +17,11 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt) {
 
 void IG2App::shutdown() {
 
+	//delete clock; // Ej1
+	//delete snowman; // Ej2
+	//delete earthAndSun; // Ej3
+	delete airplane; // Ej4
+
 	mShaderGenerator->removeSceneManager(mSM);
 	mSM->removeRenderQueueListener(mOverlaySystem);
 
@@ -24,11 +29,6 @@ void IG2App::shutdown() {
 
 	delete mTrayMgr;  mTrayMgr = nullptr;
 	delete mCamMgr; mCamMgr = nullptr;
-
-	delete clock; // Ej1
-	delete snowman; // Ej2
-	delete earthAndSun; // Ej3
-	//delete blade;
 
 	// do not forget to call the base 
 	IG2ApplicationContext::shutdown();
@@ -65,6 +65,10 @@ void IG2App::setup(void) {
 	//earthAndSun = new EarthAndSun(mSM);
 	//addInputListener(earthAndSun);
 
+	// Ejercicio 5
+	lucesSombras1 = new LucesSombras1(mSM);
+	addInputListener(lucesSombras1);
+
 	setupScene();
 }
 
@@ -98,31 +102,29 @@ void IG2App::setupScene(void) {
 	//------------------------------------------------------------------------
 	// Creating the light
 
-	//mSM->setAmbientLight(ColourValue(0.5, 0.5, 0.5));
-	Light* luz = mSM->createLight("Luz");
-	luz->setType(Ogre::Light::LT_DIRECTIONAL);
-	luz->setDiffuseColour(0.75, 0.75, 0.75);
+	////mSM->setAmbientLight(ColourValue(0.5, 0.5, 0.5));
+	//Light* luz = mSM->createLight("Luz");
+	//luz->setType(Ogre::Light::LT_DIRECTIONAL);
+	//luz->setDiffuseColour(0.75, 0.75, 0.75);
 
-	mLightNode = mSM->getRootSceneNode()->createChildSceneNode("nLuz");
-	//mLightNode = mCamNode->createChildSceneNode("nLuz");
-	mLightNode->attachObject(luz);
-	mLightNode->setDirection(Ogre::Vector3(0, 0, -1));
+	//mLightNode = mSM->getRootSceneNode()->createChildSceneNode("nLuz");
+	////mLightNode = mCamNode->createChildSceneNode("nLuz");
+	//mLightNode->attachObject(luz);
+	//mLightNode->setDirection(Ogre::Vector3(0, 0, -1));
 
 	//-----------------------------------------------------------------------
 	// Creating the floor
 
 	// Creamos plano
-	Ogre::MeshManager::getSingleton().createPlane("floor", ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-		Plane(Vector3::UNIT_Y, 0),
-		300, 200, 200, 200, true, 1, 5, 5,
-		Vector3::UNIT_Z);
+	//Ogre::MeshManager::getSingleton().createPlane("floor", ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+	//	Plane(Vector3::UNIT_Y, 0),
+	//	300, 200, 200, 200, true, 1, 5, 5,
+	//	Vector3::UNIT_Z);
 
 	// Entidad y Nodo
-	Entity* ent = mSM->createEntity("Floor", "floor");
-	//ent->setMaterialName(materialNames[2]);
-	SceneNode* floor = mSM->getRootSceneNode()->createChildSceneNode();
-	floor->attachObject(ent);
-	//floor->setPosition(150, 0, 100);
+	//Entity* ent = mSM->createEntity("Floor", "floor");
+	//SceneNode* floor = mSM->getRootSceneNode()->createChildSceneNode();
+	//floor->attachObject(ent);
 
 	//------------------------------------------------------------------------
 	// Creating Sinbad
@@ -156,9 +158,13 @@ void IG2App::setupScene(void) {
 	// Ejercicio 3
 	//earthAndSun->setupEarthAndSun();
 
-	// ejercicio 4
-	SceneNode* helixNode = mSM->getRootSceneNode()->createChildSceneNode("nHelix");
-	helix = new Helix({ 0,0,0 }, helixNode, mSM, 10);
+	// Ejercicio 4
+	//SceneNode* airplaneNode = mSM->getRootSceneNode()->createChildSceneNode("nAirplane");
+	//airplane = new Airplane({ 0,0,0 }, airplaneNode, mSM);
+	//addInputListener(airplane);
+
+	// Ejercicio 5
+	lucesSombras1->setupLucesSombras1();
 }
 
 

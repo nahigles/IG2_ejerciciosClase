@@ -12,8 +12,9 @@ protected:
 
 public:
 	Blade(Vector3 initPos, SceneNode* node, SceneManager* sceneMng);
+	virtual ~Blade() {};
 
 protected:
-	virtual void init();
+	virtual void init() override;
 };
 
