@@ -44,5 +44,7 @@ public:
 protected:
     virtual bool keyPressed(const OgreBites::KeyboardEvent& evt);  // InputListener
     virtual void frameRendered(const Ogre::FrameEvent& evt);
+    //virtual void preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
+    //virtual void postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
 };
 
