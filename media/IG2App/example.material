@@ -88,3 +88,61 @@ material example/smoke{
 		}
 	}
 }
+
+material mar/centroClaro{
+	technique {
+		pass {
+		texture_unit {
+			texture  Water01.jpg
+			colour_op modulate
+			}
+		texture_unit {
+			texture lightMap.jpg
+			colour_op add
+			}
+		}
+	}
+}
+
+material mar/bordesOscuros{
+	technique {
+		pass {
+		texture_unit {
+			texture Water01.jpg
+			colour_op modulate
+			}
+		texture_unit {
+			texture lightMap.jpg
+			colour_op modulate
+			}
+		}
+	}
+}
+
+material mar/tierra{
+	technique {
+		pass{
+		texture_unit{
+			texture Water01.jpg
+			}
+		texture_unit{
+			texture Material_alpha_blend.png
+			colour_op alpha_blend
+			}
+		texture_unit{
+			texture Material_dirt.jpg
+			colour_op_ex blend_current_alpha src_texture src_current
+			}
+		}
+	}
+}
+
+material example/sky{
+	technique {
+		pass{
+		texture_unit{
+			texture spaceSky.jpg
+			}
+		}
+	}
+}
