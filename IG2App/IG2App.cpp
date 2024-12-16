@@ -20,7 +20,9 @@ void IG2App::shutdown() {
 	//delete clock; // Ej1
 	//delete snowman; // Ej2
 	//delete earthAndSun; // Ej3
-	delete airplane; // Ej4
+	//delete airplane; // Ej4
+	//delete lucesSombras1; // Ej5
+	delete matLucSom2; // Ej 6
 
 	mShaderGenerator->removeSceneManager(mSM);
 	mSM->removeRenderQueueListener(mOverlaySystem);
@@ -66,8 +68,11 @@ void IG2App::setup(void) {
 	//addInputListener(earthAndSun);
 
 	// Ejercicio 5
-	lucesSombras1 = new LucesSombras1(mSM);
-	addInputListener(lucesSombras1);
+	//lucesSombras1 = new LucesSombras1(mSM);
+	//addInputListener(lucesSombras1);
+
+	matLucSom2 = new MaterialesLucesSombras2(mSM);
+	addInputListener(matLucSom2);
 
 	setupScene();
 }
@@ -164,7 +169,10 @@ void IG2App::setupScene(void) {
 	//addInputListener(airplane);
 
 	// Ejercicio 5
-	lucesSombras1->setupLucesSombras1();
+	//lucesSombras1->setupLucesSombras1();
+
+	// Ejercicio 6
+	matLucSom2->setupMaterialesLucesSombras2();
 }
 
 

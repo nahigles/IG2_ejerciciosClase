@@ -128,6 +128,7 @@
     <ClInclude Include="IG2App.h" />
     <ClInclude Include="IG2Object.h" />
     <ClInclude Include="LucesSombras1.h" />
+    <ClInclude Include="MaterialesLucesSombras2.h" />
     <ClInclude Include="Snowman.h" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <ClCompile Include="IG2App.cpp" />
     <ClCompile Include="IG2Object.cpp" />
     <ClCompile Include="LucesSombras1.cpp" />
+    <ClCompile Include="MaterialesLucesSombras2.cpp" />
     <ClCompile Include="Snowman.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

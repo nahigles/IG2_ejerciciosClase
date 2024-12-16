@@ -1,9 +1,52 @@
 material example/stonesFloor{
     technique { 
-	pass {  
-	    texture_unit {
-		texture BeachStones.jpg
-	    }
-	}
+		pass {  
+			texture_unit {
+			texture BeachStones.jpg
+			}
+		}
+    }
+}
+
+material example/chromeFloor{
+    technique { 
+		pass {  
+			texture_unit {
+			texture Chrome.jpg
+			}
+		}
+    }
+}
+
+material example/waterFloor{
+    technique { 
+		pass { 
+			texture_unit {
+				texture Water02.jpg
+				colour_op modulate
+				scroll_anim -0.1 0.0
+			}
+		}
+    }
+}
+
+material example/colorTurquesa{
+    technique { 
+		pass { 
+			diffuse 0.0 1 1
+		}
+    }
+}
+
+material example/colorNaranja{
+    technique { 
+		pass { 	
+			diffuse 1 0.5 0
+			texture_unit {
+				texture frost.png
+				env_map spherical
+				colour_op modulate
+			}
+		}
     }
 }
