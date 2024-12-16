@@ -20,6 +20,7 @@
 #include "Airplane.h"
 #include "LucesSombras1.h"
 #include "MaterialesLucesSombras2.h"
+#include "Animaciones.h"
 
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener{
 
@@ -53,7 +54,7 @@ protected:
     Airplane* airplane = nullptr;
     LucesSombras1* lucesSombras1 = nullptr;
     MaterialesLucesSombras2* matLucSom2 = nullptr;
-
+    Animaciones* animaciones = nullptr;
 };
 
 #endif

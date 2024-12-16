@@ -22,7 +22,8 @@ void IG2App::shutdown() {
 	//delete earthAndSun; // Ej3
 	//delete airplane; // Ej4
 	//delete lucesSombras1; // Ej5
-	delete matLucSom2; // Ej 6
+	//delete matLucSom2; // Ej 6
+	delete animaciones; // Ej 7
 
 	mShaderGenerator->removeSceneManager(mSM);
 	mSM->removeRenderQueueListener(mOverlaySystem);
@@ -71,8 +72,13 @@ void IG2App::setup(void) {
 	//lucesSombras1 = new LucesSombras1(mSM);
 	//addInputListener(lucesSombras1);
 
-	matLucSom2 = new MaterialesLucesSombras2(mSM);
-	addInputListener(matLucSom2);
+	// Ejercicio 6
+	//matLucSom2 = new MaterialesLucesSombras2(mSM);
+	//addInputListener(matLucSom2);
+
+	// Ejercio 7
+	animaciones = new Animaciones(mSM);
+	addInputListener(animaciones);
 
 	setupScene();
 }
@@ -107,15 +113,15 @@ void IG2App::setupScene(void) {
 	//------------------------------------------------------------------------
 	// Creating the light
 
-	////mSM->setAmbientLight(ColourValue(0.5, 0.5, 0.5));
-	//Light* luz = mSM->createLight("Luz");
-	//luz->setType(Ogre::Light::LT_DIRECTIONAL);
-	//luz->setDiffuseColour(0.75, 0.75, 0.75);
+	//mSM->setAmbientLight(ColourValue(0.5, 0.5, 0.5));
+	Light* luz = mSM->createLight("Luz");
+	luz->setType(Ogre::Light::LT_DIRECTIONAL);
+	luz->setDiffuseColour(0.75, 0.75, 0.75);
 
-	//mLightNode = mSM->getRootSceneNode()->createChildSceneNode("nLuz");
-	////mLightNode = mCamNode->createChildSceneNode("nLuz");
-	//mLightNode->attachObject(luz);
-	//mLightNode->setDirection(Ogre::Vector3(0, 0, -1));
+	mLightNode = mSM->getRootSceneNode()->createChildSceneNode("nLuz");
+	//mLightNode = mCamNode->createChildSceneNode("nLuz");
+	mLightNode->attachObject(luz);
+	mLightNode->setDirection(Ogre::Vector3(0, -1, -1));
 
 	//-----------------------------------------------------------------------
 	// Creating the floor
@@ -172,7 +178,10 @@ void IG2App::setupScene(void) {
 	//lucesSombras1->setupLucesSombras1();
 
 	// Ejercicio 6
-	matLucSom2->setupMaterialesLucesSombras2();
+	//matLucSom2->setupMaterialesLucesSombras2();
+
+	// Ejercicio 7
+	animaciones->setupAnimaciones();
 }
 
 
