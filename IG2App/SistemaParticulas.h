@@ -28,6 +28,13 @@ protected:
     SceneNode* mPSNode = nullptr;
     ParticleSystem* pSys = nullptr;
 
+    SceneNode* mPSNode2 = nullptr;
+    ParticleSystem* pSys2 = nullptr;
+
+    // Esfera
+    SceneNode* centerNode = nullptr;
+    SceneNode* esferaNode = nullptr;
+
 public:
     SistemaParticulas(SceneManager* sManager);
     void setupParticulas();

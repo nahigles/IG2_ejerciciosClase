@@ -1,24 +1,52 @@
 particle_system example/smokeParticleSystem{
     billboard_type point
-    particle_width 35
-    particle_height 35
-    quota 500
+    particle_width 50
+    particle_height 50
+    quota 50
     material example/smoke
     emitter Point{
-        direction       0 0 0
+        direction       1 0 0
         position        0 0 0
         angle           360
         emission_rate   10
         time_to_live    3
-        velocity_min    60
-        velocity_max    80
-        colour          0.8 0.8 0.8 0.8
+        velocity_min    10
+        velocity_max    20
+        colour          0.8 0.8 0.8 0.2
         duration        0
     }
     affector ColourFader{
         red     0.06
         green   0.06
         blue    0.06
+        alpha   -0.06
+    }
+    affector Scaler{
+        rate 0.5
+    }
+}
+
+particle_system example/blueSmokeParticleSystem{
+    billboard_type point
+    particle_width 50
+    particle_height 50
+    quota 500
+    material example/smoke
+    emitter Point{
+        direction       0 0 0
+        position        0 0 0
+        angle           360
+        emission_rate   100
+        time_to_live    2
+        velocity_min    10
+        velocity_max    20
+        colour          0 0 1 0.2
+        duration        0
+    }
+    affector ColourFader{
+        red     0.06
+        green   0.7
+        blue    0.8
         alpha   -0.06
     }
     affector Scaler{

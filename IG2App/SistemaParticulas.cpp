@@ -62,6 +62,24 @@ void SistemaParticulas::setupParticulas()
 	mPSNode = mSM->getRootSceneNode()->createChildSceneNode();
 	mPSNode->setPosition(-150, 100, 0);
 	mPSNode->attachObject(pSys);
+
+
+	// Nodo Centro
+	centerNode = mSM->getRootSceneNode()->createChildSceneNode();
+
+	// Esfera
+	Entity* entEsfera = mSM->createEntity("sphere.mesh");
+	esferaNode = centerNode->createChildSceneNode();
+	esferaNode->attachObject(entEsfera);
+	esferaNode->setScale(0.3, 0.3, 0.3);
+	esferaNode->translate(700, 100, 0);
+
+	// Sistema particulas 2
+	pSys2 = mSM->createParticleSystem("psBlueSmoke", "example/blueSmokeParticleSystem");
+	pSys2->setEmitting(false);
+	mPSNode2 = esferaNode->createChildSceneNode();
+	mPSNode2->setPosition(-150, 100, 0);
+	mPSNode2->attachObject(pSys2);
 }
 
 bool SistemaParticulas::keyPressed(const OgreBites::KeyboardEvent& evt)
@@ -69,10 +87,14 @@ bool SistemaParticulas::keyPressed(const OgreBites::KeyboardEvent& evt)
 	if (evt.keysym.sym == SDLK_x) {
 		pSys->setEmitting(true);
 	}
+	else if (evt.keysym.sym == SDLK_c) {
+		pSys2->setEmitting(true);
+	}
 
 	return true;
 }
 
 void SistemaParticulas::frameRendered(const Ogre::FrameEvent& evt)
 {
+	centerNode->yaw(Degree(1));
 }
