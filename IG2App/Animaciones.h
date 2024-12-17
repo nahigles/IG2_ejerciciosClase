@@ -9,6 +9,8 @@
 #include <SDL_keycode.h>
 #include <iostream>
 #include <OgreKeyFrame.h>
+#include <OgreSkeletonInstance.h>
+#include <OgreBone.h>
 
 using  namespace std;
 using namespace Ogre;

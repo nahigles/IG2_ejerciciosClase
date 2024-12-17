@@ -38,25 +38,27 @@ void Animaciones::setupAnimaciones()
 	swordRightEnt = mSM->createEntity("Sword.mesh");
 
 	// Obtain the names of all the animations in Sinbad.mesh
-//    AnimationStateSet * aux = sinbadEnt->getAllAnimationStates();
-//    auto it = aux->getAnimationStateIterator().begin();
-//    while (it != aux->getAnimationStateIterator().end()){
-//        auto s = it->first;
-//        ++it;
-//        cout << "Animation name (Sinbad.mesh): " << s << endl;
-//    }
+	AnimationStateSet* aux = sinbadEnt->getAllAnimationStates();
+	auto it = aux->getAnimationStateIterator().begin();
+	while (it != aux->getAnimationStateIterator().end()) {
+		auto s = it->first;
+		++it;
+		cout << "Animation name (Sinbad.mesh): " << s << endl;
+	}
 
 	// Obtain the names of all the bones in Sinbad.mesh
-//    SkeletonInstance * skeleton = sinbadEnt->getSkeleton();
-//    int numBones = skeleton->getNumBones();
-//    for (int i=0; i<numBones; i++){
-//        cout << "Bone name (Sinbad.mesh): " << skeleton->getBone(i)->getName() << endl;
-//    }
+	SkeletonInstance* skeleton = sinbadEnt->getSkeleton();
+	int numBones = skeleton->getNumBones();
+	for (int i = 0; i < numBones; i++) {
+		cout << "Bone name (Sinbad.mesh): " << skeleton->getBone(i)->getName() << endl;
+	}
 
 
 	//------------------------------------------------------------------------
 	// Animation of Sinbad
-	// TODO...
+	animationStateDance = sinbadEnt->getAnimationState("Dance"); //entity se construye sobre una malla
+	animationStateRunBase = sinbadEnt->getAnimationState("RunBase");
+	animationStateRunTop = sinbadEnt->getAnimationState("RunTop");
 
 	// Set keyframes here...
 	// TODO...
@@ -71,12 +73,36 @@ void Animaciones::setupAnimaciones()
 bool Animaciones::keyPressed(const OgreBites::KeyboardEvent& evt)
 {
 	// Running animation
-// TODO...
+	if (evt.keysym.sym == SDLK_r) {
+		if (isRunning) {
+			isRunning = false;
 
-// Dancing animation
-// TODO...
+		}
+		else {
+			isRunning = true;
+		}
 
-// Attach/Dettach left sword
+		animationStateRunBase->setEnabled(isRunning);
+		animationStateRunBase->setLoop(isRunning);
+		animationStateRunTop->setEnabled(isRunning);
+		animationStateRunTop->setLoop(isRunning);
+	}
+
+	// Dancing animation
+	else if (evt.keysym.sym == SDLK_d) {
+		if (isDancing) {
+			isDancing = false;
+
+		}
+		else {
+			isDancing = true;
+
+		}
+		animationStateDance->setEnabled(isDancing);
+		animationStateDance->setLoop(isDancing);
+	}
+
+	// Attach/Dettach left sword
 	if (evt.keysym.sym == SDLK_q) {
 		// Si tiene la espada la quito
 		if (attachedLeftSword) {
@@ -128,5 +154,11 @@ void Animaciones::frameRendered(const Ogre::FrameEvent& evt)
 
 	// Example of Sinbad's animation (running and dancing)
 	//------------------------------------------------------------------------
-	// TODO...
+
+	if (isDancing)
+		animationStateDance->addTime(evt.timeSinceLastFrame);
+	else if (isRunning) {
+		animationStateRunBase->addTime(evt.timeSinceLastFrame);
+		animationStateRunTop->addTime(evt.timeSinceLastFrame);
+	}
 }

@@ -92,8 +92,8 @@ void IG2App::setup(void) {
 	//addInputListener(multitexturas);
 
 	// Ejercicio 10
-	shaders = new Shaders(mSM);
-	addInputListener(shaders);
+	//shaders = new Shaders(mSM);
+	//addInputListener(shaders);
 
 	setupScene();
 }
@@ -196,7 +196,7 @@ void IG2App::setupScene(void) {
 	//matLucSom2->setupMaterialesLucesSombras2();
 
 	// Ejercicio 7
-	//animaciones->setupAnimaciones();
+	animaciones->setupAnimaciones();
 
 	// Ejercicio 8
 	//particulas->setupParticulas();
@@ -205,7 +205,7 @@ void IG2App::setupScene(void) {
 	//multitexturas->setupMultitexturas();
 
 	// Ejercicio 10
-	shaders->setupShaders();
+	//shaders->setupShaders();
 }
 
 
