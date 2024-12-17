@@ -201,3 +201,73 @@ material example/spaceSkyShader{
 		}
 	} 
 }
+
+
+vertex_program EsferaAjedrezVS glsl{
+	source EsferaAjedrezVS.glsl
+	default_params{
+		param_named_auto modelViewProjMat worldviewproj_matrix
+	}
+}
+
+fragment_program EsferaAjedrezFS glsl{
+	source EsferaAjedrezFS.glsl
+	default_params{
+		param_named textura1 int 0
+		param_named textura2 int 1
+		param_named textura3 int 2
+	}
+}
+
+material example/esferaAjedrezShader{
+	technique{
+		pass{
+			vertex_program_ref EsferaAjedrezVS{}
+			fragment_program_ref EsferaAjedrezFS{}
+			texture_unit{
+				texture  checker.png 2d
+				tex_address_mode clamp
+			}
+			texture_unit {
+				texture  corrosion.jpg 2d
+				tex_address_mode clamp
+			}
+			texture_unit{
+				texture  BumpyMetal.jpg 2d
+				tex_address_mode clamp
+			}				
+		}
+	}
+} 
+
+vertex_program EsferaHuecaVS glsl{
+	source EsferaHuecaVS.glsl
+	default_params{
+		param_named_auto modelViewProjMat worldviewproj_matrix
+	}
+}
+
+fragment_program EsferaHuecaFS glsl{
+	source EsferaHuecaFS.glsl
+	default_params{
+		param_named textura1 int 0
+		param_named textura2 int 1
+	}
+}
+
+material example/esferaHuecaShader{
+	technique{
+		pass{
+			vertex_program_ref EsferaHuecaVS{}
+			fragment_program_ref EsferaHuecaFS{}
+			texture_unit{
+				texture  checker.png 2d
+				tex_address_mode clamp
+			}
+			texture_unit{
+				texture  BumpyMetal.jpg 2d
+				tex_address_mode clamp
+			}				
+		}
+	}
+} 

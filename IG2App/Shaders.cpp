@@ -59,7 +59,9 @@ void Shaders::setupShaders()
     sphereNode->setPosition(Vector3(0, 100, 0));
 
     // Sphere with shaders here!!!
-    sphereEnt->setMaterialName("example/shaderOrange");
+    //sphereEnt->setMaterialName("example/shaderOrange");
+    //sphereEnt->setMaterialName("example/esferaAjedrezShader");
+    sphereEnt->setMaterialName("example/esferaHuecaShader");
 
 }
 
