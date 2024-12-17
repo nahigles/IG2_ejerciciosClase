@@ -43,9 +43,10 @@ void Shaders::setupShaders()
     plane.normal = Ogre::Vector3::UNIT_Z;
 
     // Sky using multitexture
-    mSM->setSkyPlane(true, plane, "example/sky", 20, 1, true, 0, 50, 50);
+    //mSM->setSkyPlane(true, plane, "example/sky", 20, 1, true, 0, 50, 50);
 
     // Sky using shaders here!!!
+    mSM->setSkyPlane(true, plane, "example/spaceSkyShader", 20, 1, true, 0, 50, 50);
 
 
 

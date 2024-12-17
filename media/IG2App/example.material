@@ -156,12 +156,6 @@ vertex_program shaderOrangeVS glsl{
 
 fragment_program shaderOrangeFS glsl{
 	source shaderOrangeFS.glsl
-	/*default_params{
-		param_named texturaL int 0
-		param_named texturaM int 1
-		param_named BF float 0.5
-		param_named intLuzAmb float 1.0
-	}*/
 }
 
 material example/shaderOrange{
@@ -169,15 +163,41 @@ material example/shaderOrange{
 		pass{
 			vertex_program_ref shaderOrangeVS{}
 			fragment_program_ref shaderOrangeFS{}
-			/*texture_unit{
-				texture texturaA.jpg 2d
+		}
+	} 
+}
+
+vertex_program SpaceSkyVS glsl{
+	source SpaceSkyVS.glsl
+	default_params{
+		param_named_auto modelViewProjMat worldviewproj_matrix
+	}
+}
+
+fragment_program SpaceSkyFS glsl{
+	source SpaceSkyFS.glsl
+	default_params{
+		param_named textura1 int 0
+		param_named textura2 int 1
+		param_named BF float 0.5
+		param_named intLuzAmb float 1.0
+	}
+}
+
+material example/spaceSkyShader{
+	technique{
+		pass{
+			vertex_program_ref SpaceSkyVS{}
+			fragment_program_ref SpaceSkyFS{}
+			texture_unit{
+				texture spaceSky.jpg 2d
 				tex_address_mode clamp
 				filtering bilinear
 			}
 			texture_unit {
-				texture texturaB.jpg 2d
+				texture  lightMap.jpg 2d
 				tex_address_mode wrap
-			}*/
+			}
 		}
 	} 
 }
