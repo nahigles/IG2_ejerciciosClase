@@ -61,10 +61,62 @@ void Animaciones::setupAnimaciones()
 	animationStateRunTop = sinbadEnt->getAnimationState("RunTop");
 
 	// Set keyframes here...
-	// TODO...
+	// Variables
+	int movementLength = 50;
+	Real duration = 16.0;
+	Vector3 keyframePos(0, 0, 0);
+	Real durStep = duration / 4.0;
+
+	// Create the animation and track
+	Animation* animation = mSM->createAnimation("sinbadWalking", duration);
+	animation->setInterpolationMode(Ogre::Animation::IM_SPLINE);
+	NodeAnimationTrack* track = animation->createNodeTrack(0);
+	track->setAssociatedNode(sinbadNode);
+	TransformKeyFrame* kf;
+
+	Quaternion keepDir = Quaternion::IDENTITY;
+	Quaternion rightDir = Quaternion(Degree(90), Vector3::UNIT_Y);
+	Quaternion leftDir = Quaternion(Degree(90), Vector3::NEGATIVE_UNIT_Y);
+
+	// Keyframe 0 (Init state)
+	kf = track->createNodeKeyFrame(durStep * 0);
+	kf->setTranslate(keyframePos);
+	kf->setRotation(rightDir);
+	// Keyframe 1: Go to the right
+	kf = track->createNodeKeyFrame(durStep * 1);
+	keyframePos += Ogre::Vector3::UNIT_X * movementLength;
+	kf->setTranslate(keyframePos);
+	kf->setRotation(rightDir * keepDir);
+	// Keyframe 2: Go to the initial position
+	kf = track->createNodeKeyFrame(durStep * 2);
+	keyframePos += Ogre::Vector3::NEGATIVE_UNIT_X * movementLength;
+	kf->setTranslate(keyframePos);
+	kf->setRotation(leftDir);
+	// Keyframe 3: Go to the left
+	kf = track->createNodeKeyFrame(durStep * 3);
+	keyframePos += Ogre::Vector3::NEGATIVE_UNIT_X * movementLength;
+	kf->setTranslate(keyframePos);
+	kf->setRotation(leftDir * keepDir);
+	// Keyframe 4: Go to the right (initital position)
+	kf = track->createNodeKeyFrame(durStep * 4);
+	keyframePos += Ogre::Vector3::UNIT_X * movementLength;
+	kf->setTranslate(keyframePos);
+	kf->setRotation(leftDir * keepDir);
+	// Keyframe 5: Go to the right (initital position)
+	kf = track->createNodeKeyFrame(durStep * 5);
+	//keyframePos += Ogre::Vector3::UNIT_X * movementLength;
+	kf->setTranslate(keyframePos);
+	kf->setRotation(rightDir);
+	// Keyframe 6: Go to the right (initital position)
+	kf = track->createNodeKeyFrame(durStep * 5);
+	keyframePos += Ogre::Vector3::UNIT_X * movementLength;
+	kf->setTranslate(keyframePos);
+	kf->setRotation(rightDir*keepDir);
 
 	// Our defined animation
-	// TODO...
+	animationState = mSM->createAnimationState("sinbadWalking");
+	animationState->setLoop(true);
+	animationState->setEnabled(true);
 
 	// Animations for running and dancing...
 	// TODO...
@@ -149,7 +201,7 @@ void Animaciones::frameRendered(const Ogre::FrameEvent& evt)
 
 	// Example of NodeAnimationTrack
 	//------------------------------------------------------------------------
-	// TODO...
+	animationState->addTime(evt.timeSinceLastFrame);
 
 
 	// Example of Sinbad's animation (running and dancing)
