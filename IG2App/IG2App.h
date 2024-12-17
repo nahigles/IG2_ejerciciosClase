@@ -23,6 +23,7 @@
 #include "Animaciones.h"
 #include "SistemaParticulas.h"
 #include "Multitexturas.h"
+#include "Shaders.h"
 
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener{
 
@@ -59,6 +60,7 @@ protected:
     Animaciones* animaciones = nullptr;
     SistemaParticulas* particulas = nullptr;
     Multitexturas* multitexturas = nullptr;
+    Shaders* shaders = nullptr;
 };
 
 #endif

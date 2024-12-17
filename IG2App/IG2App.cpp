@@ -25,7 +25,8 @@ void IG2App::shutdown() {
 	//delete matLucSom2; // Ej 6
 	delete animaciones; // Ej 7
 	//delete particulas; // Ej 8
-	delete multitexturas; // EJ 9
+	//delete multitexturas; // EJ 9
+	delete shaders; // Ej 10
 
 	mShaderGenerator->removeSceneManager(mSM);
 	mSM->removeRenderQueueListener(mOverlaySystem);
@@ -87,8 +88,12 @@ void IG2App::setup(void) {
 	//addInputListener(particulas);
 
 	// Ejercicio 9
-	multitexturas = new Multitexturas(mSM);
-	addInputListener(multitexturas);
+	//multitexturas = new Multitexturas(mSM);
+	//addInputListener(multitexturas);
+
+	// Ejercicio 10
+	shaders = new Shaders(mSM);
+	addInputListener(shaders);
 
 	setupScene();
 }
@@ -197,7 +202,10 @@ void IG2App::setupScene(void) {
 	//particulas->setupParticulas();
 
 	// Ejercicio 9
-	multitexturas->setupMultitexturas();
+	//multitexturas->setupMultitexturas();
+
+	// Ejercicio 10
+	shaders->setupShaders();
 }
 
 

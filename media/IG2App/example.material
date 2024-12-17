@@ -146,3 +146,38 @@ material example/sky{
 		}
 	}
 }
+
+vertex_program shaderOrangeVS glsl{
+	source shaderOrangeVS.glsl
+	default_params{
+		param_named_auto modelViewProjMat worldviewproj_matrix
+	}
+}
+
+fragment_program shaderOrangeFS glsl{
+	source shaderOrangeFS.glsl
+	/*default_params{
+		param_named texturaL int 0
+		param_named texturaM int 1
+		param_named BF float 0.5
+		param_named intLuzAmb float 1.0
+	}*/
+}
+
+material example/shaderOrange{
+	technique{
+		pass{
+			vertex_program_ref shaderOrangeVS{}
+			fragment_program_ref shaderOrangeFS{}
+			/*texture_unit{
+				texture texturaA.jpg 2d
+				tex_address_mode clamp
+				filtering bilinear
+			}
+			texture_unit {
+				texture texturaB.jpg 2d
+				tex_address_mode wrap
+			}*/
+		}
+	} 
+}

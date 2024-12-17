@@ -131,6 +131,7 @@
     <ClInclude Include="LucesSombras1.h" />
     <ClInclude Include="MaterialesLucesSombras2.h" />
     <ClInclude Include="Multitexturas.h" />
+    <ClInclude Include="Shaders.h" />
     <ClInclude Include="SistemaParticulas.h" />
     <ClInclude Include="Snowman.h" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <ClCompile Include="LucesSombras1.cpp" />
     <ClCompile Include="MaterialesLucesSombras2.cpp" />
     <ClCompile Include="Multitexturas.cpp" />
+    <ClCompile Include="Shaders.cpp" />
     <ClCompile Include="SistemaParticulas.cpp" />
     <ClCompile Include="Snowman.cpp" />
   </ItemGroup>
